@@ -14,10 +14,13 @@ app.get("/", (req, res) => {
 });
 
 // Define Router
-const { accountsRouter } = require("./routers");
+const { accountsRouter, productsRouter, categoriesRouter, warehouseRouter } = require("./routers");
 app.use("/account", accountsRouter);
+app.use("/product", productsRouter);
+app.use("/category", categoriesRouter);
+app.use("/warehouse", warehouseRouter);
 
-app.use("public", express.static("public"));
+app.use("/public", express.static("public"));
 
 app.listen(PORT, () => {
   console.log(`API RUNNING ON PORT ${PORT}`);
